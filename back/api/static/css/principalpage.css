@@ -1,0 +1,155 @@
+.top-app-bar {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-app-bar__title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    align-items: center;
+}
+
+.top-app-bar__menu-btn {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.drawer {
+    height: 100%;
+    width: 300px;
+    position: fixed;
+    top: 0;
+    left: -300px;
+    background-color: #f1f1f1;
+    padding: 2rem;
+    transition: left 0.5s ease;
+}
+
+.drawer__user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.drawer__user-avatar-container {
+    position: relative;
+    display: inline-block;
+}
+
+.drawer__user-avatar {
+    position: relative;
+    display: inline-block;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 80px;
+    height: 80px;
+}
+
+.drawer__user-avatar-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.drawer__profile-pic-button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #25D366;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.drawer__profile-pic-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.drawer__user-name {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.drawer__user-role {
+    color: #666;
+}
+
+.drawer__user-email {
+    color: #666;
+    margin-top: 0.5rem;
+}
+
+.drawer__link {
+    padding: 0.5rem 0;
+    text-decoration: none;
+    font-size: 1rem;
+    color: #333;
+    display: block;
+    transition: 0.3s;
+}
+
+.drawer__link:hover {
+    color: #000;
+}
+
+.drawer__logout-link {
+    padding: 0.5rem 0;
+    text-decoration: none;
+    font-size: 1rem;
+    color: #333;
+    display: block;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+.drawer__logout-link:hover {
+    color: #000;
+}
+
+.drawer__logout-icon {
+    margin-right: 0.5rem;
+}
+
+#drawer-toggle {
+    display: none;
+}
+
+#drawer-toggle:checked~.drawer {
+    left: 0;
+}
+
+.file-input {
+    display: none;
+}
+
+.file-label {
+    display: inline-block;
+    cursor: pointer;
+    padding: 3px 3px;
+    background-color: transparent;
+    color: black;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+}
+
+.file-label i {
+    margin-right: 2px;
+}

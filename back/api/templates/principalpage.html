@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Principal</title>
+    <link rel="stylesheet" href="{% static 'css/principalpage.css' %}">
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}">
+
+
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+
+</head>
+
+<body>
+    <div class="top-app-bar">
+        <div class="top-app-bar__title">Restaurante</div>
+        <label for="drawer-toggle" class="top-app-bar__menu-btn">&#9776;</label>
+    </div>
+
+    <input type="checkbox" id="drawer-toggle" />
+    <div class="drawer">
+        <div class="drawer__user-info">
+            <div class="drawer__user-avatar-container relative">
+                <img src="data:image/png;base64,{{ user.image }}" alt="User Avatar" class="drawer__user-avatar">
+                <form action="{% url 'upload_image' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <label for="file-input"
+                        class="drawer__profile-pic-button absolute bottom-0 right-0 bg-transparent rounded-full p-2">
+                        <i class="fas fa-camera" style="color: black;"></i>
+                    </label>
+                    <input type="file" id="file-input" name="file" class="file-input" accept="image/*"
+                        style="display: none;" onchange="this.form.submit()">
+                    <button type="submit" style="display: none;"></button>
+                </form>
+            </div>
+            <div class="drawer__user-name">{{ user.first_name }} {{ user.last_name }}</div>
+            <div class="drawer__user-role">({% for role in roles %}
+                {{ role.nombre }}{% if not forloop.last %}, {% endif %}
+                {% endfor %})</div>
+            <div class="drawer__user-email">{{ user.email }}</div>
+        </div>
+        <a href="#" class="drawer__link">Inicio</a>
+        <a href="#" class="drawer__link">Acerca de</a>
+        <a href="#" class="drawer__link">Servicios</a>
+        <a href="#" class="drawer__link">Contacto</a>
+        <a href="{% url 'logout' %}" class="drawer__logout-link">
+            <i class="fas fa-sign-out-alt drawer__logout-icon"></i>
+            Cerrar sesión
+        </a>
+    </div>
+</body>
+
+</html>
